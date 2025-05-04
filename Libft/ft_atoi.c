@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 14:08:19 by nanasser          #+#    #+#             */
-/*   Updated: 2025/01/27 18:17:02 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/05 02:06:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ int	ft_atoi(const char *str)
 			else if (sign == -1)
 				return (0);
 		}
-		result *= 10;
-		result += str[i] - '0';
-		i++;
+		result = (result * 10) + (str[i++] - '0');
 	}
 	result *= sign;
 	return (result);

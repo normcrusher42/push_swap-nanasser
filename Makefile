@@ -1,19 +1,19 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile (move to root)                            :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 18:06:28 by nanasser          #+#    #+#              #
-#    Updated: 2025/04/21 20:41:38 by nanasser         ###   ########.fr        #
+#    Updated: 2025/05/04 23:44:29 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJ_PATH = obj/
 LIBFT_PATH = libft/
 
-NAME = "PROJECT NAME".a
+NAME = push_swap.a
 LIBFT = $(LIBFT_PATH)libft.a
 
 SRC = 

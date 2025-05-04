@@ -29,4 +29,10 @@ typedef struct s_stack_node
 	struct s_stack_node *target;
 }	t_stack_node;
 
+void	initialize_stack_a(t_stack_node **node, char **av);
+int		error_check(char *str);
+int		dup_check(t_stack_node *a, int n);
+void	free_check(t_stack_node **node);
+void	add_node(t_list **stack, int num);
+
 #endif
