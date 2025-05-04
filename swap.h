@@ -10,15 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef SWAP_H
 # define SWAP_H
 
-typedef struct s_list
+# include <stdbool.h>
+# include <limits.h>
+# include "Libft/libft.h"
+
+typedef struct s_stack_node 
 {
-	int		data;
-	s_list	*next;
-	s_list	*prev;
-}	t_list;
+	int					value;
+	int					index;
+	int					push_cost;
+	bool				above_median;
+	bool				cheapest;
+	struct s_stack_node *next;
+	struct s_stack_node *prev;
+	struct s_stack_node *target;
+}	t_stack_node;
 
 #endif
