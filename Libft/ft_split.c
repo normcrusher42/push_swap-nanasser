@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:26:48 by nanasser          #+#    #+#             */
-/*   Updated: 2025/01/17 20:32:41 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/04 20:56:22 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	freemem(char **arr, int size)
 	*arr = NULL;
 }
 
-static int	counting_words(const char *s, char c)
+static int	counting_words(const char *s, char c, const char **last_pos)
 {
 	int	i;
 	int	count;
@@ -44,6 +44,7 @@ static int	counting_words(const char *s, char c)
 				i++;
 		}
 	}
+	*last_pos = s + i;
 	return (count);
 }
 
@@ -78,12 +79,13 @@ static void	allocating(char **arr, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		size;
+	char		**arr;
+	int			size;
+	const char	*last_pos;
 
 	if (!s)
 		return (NULL);
-	size = counting_words(s, c);
+	size = counting_words(s, c, &last_pos);
 	arr = malloc(sizeof(char *) * (size + 1));
 	if (!arr)
 		return (NULL);
