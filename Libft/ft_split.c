@@ -3,92 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:26:48 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/04 20:56:22 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/06 02:24:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../swap.h"
 
-static void	freemem(char **arr, int size)
+static int	count_words(char *s, char c)
 {
-	int	i;
+	int		count;
+	bool	inside_word;
 
-	i = 0;
-	while (i < size)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	*arr = NULL;
-}
-
-static int	counting_words(const char *s, char c, const char **last_pos)
-{
-	int	i;
-	int	count;
-
-	i = 0;
 	count = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
+		inside_word = false;
+		while (*s == c)
+			++s;
+		while (*s != c && *s)
 		{
-			count++;
-			while (s[i] && s[i] != c)
-				i++;
+			if (!inside_word)
+			{
+				++count;
+				inside_word = true;
+			}
+			++s;
 		}
 	}
-	*last_pos = s + i;
 	return (count);
 }
 
-static void	allocating(char **arr, char const *s, char c)
+static char	*get_next_word(char *s, char c)
 {
-	char		**toarr;
-	char const	*sptr;
+	static int	cursor = 0;
+	char		*next_word;
+	int			len;
+	int			i;
 
-	toarr = arr;
-	sptr = s;
-	while (*sptr)
-	{
-		while (*s == c)
-			s++;
-		sptr = s;
-		while (*sptr && *sptr != c)
-			sptr++;
-		if (*sptr == c || sptr > s)
-		{
-			*toarr = ft_substr(s, 0, sptr - s);
-			if (!toarr)
-			{
-				freemem(arr, toarr - arr);
-				return ;
-			}
-			s = sptr;
-			toarr++;
-		}
-	}
-	*toarr = NULL;
+	len = 0;
+	i = 0;
+	while (s[cursor] == c)
+		++cursor;
+	while ((s[cursor + len] != c) && s[cursor + len])
+		++len;
+	next_word = malloc((size_t)len * sizeof(char) + 1);
+	if (!next_word)
+		return (NULL);
+	while ((s[cursor] != c) && s[cursor])
+		next_word[i++] = s[cursor++];
+	next_word[i] = '\0';
+	return (next_word);
 }
 
-char	**ft_split(char const *s, char c)
+char **ft_split(char *s, char c)
 {
-	char		**arr;
-	int			size;
-	const char	*last_pos;
+	int		words_count;
+	char	**result_array;
+	int		i;
 
-	if (!s)
+	i = 0;
+	words_count = count_words(s, c);
+	if (!words_count)
+		exit(1);
+	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
+	if (!result_array)
 		return (NULL);
-	size = counting_words(s, c, &last_pos);
-	arr = malloc(sizeof(char *) * (size + 1));
-	if (!arr)
-		return (NULL);
-	allocating(arr, s, c);
-	return (arr);
+	while (words_count-- >= 0)
+	{
+		if (i == 0)
+		{
+			result_array[i] = malloc(sizeof(char));
+			if (!result_array[i])
+				return (NULL);
+			result_array[i++][0] = '\0';
+			continue ;
+		}
+		result_array[i++] = get_next_word(s, c);
+	}
+	result_array[i] = NULL;
+	return (result_array);
 }

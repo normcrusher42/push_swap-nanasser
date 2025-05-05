@@ -6,16 +6,16 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:07:15 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/05 01:05:45 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/05 20:17:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../swap.h"
 
-void	ft_lstclear(t_list **lst)
+void	ft_lstclear(t_stack_node **lst)
 {
-	t_list	*move;
-	t_list	*temp;
+	t_stack_node	*move;
+	t_stack_node	*temp;
 
 	if (!*lst)
 		return ;
@@ -23,7 +23,7 @@ void	ft_lstclear(t_list **lst)
 	while (move)
 	{
 		temp = move -> next;
-		move -> content = 0;
+		move -> value = 0;
 		free(move);
 		move = temp;
 	}

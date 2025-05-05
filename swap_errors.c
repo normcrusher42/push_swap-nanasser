@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 21:29:57 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/05 02:03:14 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/06 00:29:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 
 int	error_check(char *str)
 {
-	if (!((*str == '-' || *str == '+') || (*str >= '0' && *str <= '9')))
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
+	{
+		write(1, "ded function1\n", 14);
 		return (1);
-	if ((*str == '-' || *str == '+') && !(*str >= '0' && *str <= '9'))
+	}
+	if ((*str == '-' || *str == '+') && !(str[1] >= '0' && str[1] <= '9'))
+	{
+		write(1, "ded function2\n", 14);
 		return (1);
-	while (++*str)
+	}
+	while (*++str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
+		{
+			write(1, "ded function3\n", 14);
 			return (1);
+		}
 	}
 	return (0);
 }

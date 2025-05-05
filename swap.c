@@ -15,14 +15,16 @@
 int	main(int ac, char **av)
 {
 	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
+	// t_stack_node	*stack_b;
 
 	stack_a = NULL;
-	stack_b = NULL;
-	if ((ac == 1) || (ac == 2 && av[1][0] != '\0'))
+	// stack_b = NULL;
+	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	initialize_stack_a(&stack_a, av + 1);
-	if ()
+	ft_lstclear(&stack_a);
+	write(1, "exited successfully\n", 19);
+	return (0);
 }

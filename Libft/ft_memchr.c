@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 17:40:37 by nanasser          #+#    #+#             */
-/*   Updated: 2025/01/18 15:50:08 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:06:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	while (i < n)
 	{
 		if (str2[i] == (unsigned char)c)
-		{
-			return ((void *)&str[i]);
-		}
+			return ((void *)&str2[i]);
 		i++;
 	}
 	return (NULL);

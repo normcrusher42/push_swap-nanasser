@@ -6,11 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 14:08:19 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/05 02:06:52 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/06 00:40:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../swap.h"
 
 static int	whitespaces(const char *str, int *istr)
 {
@@ -46,12 +47,7 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (result > (LONG_MAX - (str[i] - '0')) / 10)
-		{
-			if (sign == 1)
-				return (-1);
-			else if (sign == -1)
-				return (0);
-		}
+			return (0);
 		result = (result * 10) + (str[i++] - '0');
 	}
 	result *= sign;

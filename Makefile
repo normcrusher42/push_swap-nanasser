@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 18:06:28 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/04 23:44:29 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/06 00:48:05 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT_PATH = libft/
 NAME = push_swap.a
 LIBFT = $(LIBFT_PATH)libft.a
 
-SRC = 
+SRC = ./swap.c swap_utils.c swap_errors.c stack_initializer.c \
 
 OBJ = $(SRC:%.c=$(OBJ_PATH)%.o)
 

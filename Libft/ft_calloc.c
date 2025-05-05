@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 15:34:27 by nanasser          #+#    #+#             */
-/*   Updated: 2025/01/25 19:40:04 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:06:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
 	char	*ptr;
 
 	if (count > SIZE_MAX / size)
 		return (NULL);
-	i = 0;
 	ptr = malloc(count * size);
 	if (!ptr)
-	{
 		return (NULL);
-	}
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
