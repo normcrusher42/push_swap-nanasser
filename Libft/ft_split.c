@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:26:48 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/06 02:24:00 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 00:17:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char **ft_split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		words_count;
 	char	**result_array;

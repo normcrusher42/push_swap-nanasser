@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 18:06:28 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/06 00:48:05 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/07 00:02:16 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,5 +51,6 @@ fclean: clean
 	@rm -f *.out
 
 re: fclean $(NAME)
+	$(MAKE) clean
 
 .PHONY: all clean fclean re

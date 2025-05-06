@@ -6,11 +6,37 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 23:43:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/06 00:44:47 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 00:21:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
+
+void	add_node(t_stack_node **stack, int num)
+{
+	t_stack_node	*node;
+	t_stack_node	*last_node;
+
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_stack_node));
+	if (!node)
+		return ;
+	node -> value = num;
+	node -> cheapest = 0;
+	node -> next = NULL;
+	if (!(*stack))
+	{
+		*stack = node;
+		node -> prev = NULL;
+	}
+	else
+	{
+		last_node = ft_lstlast(*stack);
+		last_node -> next = node;
+		node -> prev = last_node;
+	}
+}
 
 void	initialize_stack_a(t_stack_node **node, char **av)
 {
@@ -18,25 +44,16 @@ void	initialize_stack_a(t_stack_node **node, char **av)
 	int		i;
 
 	i = 0;
-	write(1, "in function\n", 12);
+	num = 0;
 	while (av[i])
 	{
 		if (error_check(av[i]))
-		{
-			write(1, "1 error here\n", 13);
 			free_check(node);
-		}
 		if (!(ft_atoi(av[i])))
-		{
-			write(1, "2 error here\n", 13);
 			free_check(node);
-		}
 		num = ft_atoi(av[i]);
 		if (dup_check(*node, (int)num))
-		{
-			write(1, "3 error here\n", 13);
 			free_check(node);
-		}
 		add_node(node, (int)num);
 		i++;
 	}

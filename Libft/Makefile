@@ -6,9 +6,11 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/17 21:00:03 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/05 21:07:45 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/06 23:51:10 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+OBJ_PATH = Lib_obj/
 
 SRC = ./ft_atoi.c \
 ./ft_bzero.c \
@@ -55,9 +57,7 @@ SRC = ./ft_atoi.c \
 ./ft_printf.c ft_printf_str.c ft_printf_unsigned.c ft_printf_ptr.c ft_printf_hex.c \
 ./get_next_line.c get_next_line_utils.c \
 
-
-
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=$(OBJ_PATH)%.o)
 
 CC		= cc
 
@@ -67,16 +67,19 @@ NAME = libft.a
 
 all:$(NAME)
 
-$(NAME)	:	$(OBJ)
+$(NAME)	:	$(OBJ_PATH) $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
 	@echo "fini. now fuck around and find out"
 
-%.o : %.c
-	@echo "on the way, sir."
+$(OBJ_PATH)%.o : %.c
+	@echo "on the way, sir"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)
+
 clean:
-	@rm -f $(OBJ)
+	@rm -rf $(OBJ_PATH)
 	@echo "cleaned like the blackhole you're getting if you don't STOP COOKING"
 
 fclean: clean

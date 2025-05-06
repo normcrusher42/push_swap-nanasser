@@ -12,28 +12,4 @@
 
 #include "swap.h"
 
-void	add_node(t_stack_node **stack, int num)
-{
-	t_stack_node	*node;
-	t_stack_node	*last_node;
 
-	if (!stack)
-		return ;
-	node = malloc(sizeof(t_stack_node));
-	if (!node)
-		return ;
-	node -> value = num;
-	node -> cheapest = 0;
-	node -> next = NULL;
-	if (!(*stack))
-	{
-		*stack = node;
-		node -> prev = NULL;
-	}
-	else
-	{
-		last_node = ft_lstlast(*stack);
-		last_node -> next = node;
-		node -> prev = last_node;
-	}
-}
