@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/17 21:00:03 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/06 23:51:10 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/07 23:31:53 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,22 +65,25 @@ CFLAGS += -Wall -Werror -Wextra
 
 NAME = libft.a
 
+GREEN=\033[0;32m
+YELLOW=\033[0;33m
+
+MAKEFLAGS += --no-print-directory
+
 all:$(NAME)
 
 $(NAME)	:	$(OBJ_PATH) $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
-	@echo "fini. now fuck around and find out"
+	@echo "$(GREEN)Libft done. Next."
 
 $(OBJ_PATH)%.o : %.c
-	@echo "on the way, sir"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
+	@mkdir -p $(OBJ_PATH)
 
 clean:
 	@rm -rf $(OBJ_PATH)
-	@echo "cleaned like the blackhole you're getting if you don't STOP COOKING"
 
 fclean: clean
 	@rm -f $(NAME)

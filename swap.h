@@ -49,6 +49,7 @@ t_stack_node	*find_largest(t_stack_node *stack);
 ///   Stack Sorcery Isle   ///
 bool			stack_is_sorted(t_stack_node *stack);
 void			sort_three(t_stack_node **a);
+void			sort_stacks(t_stack_node **a, t_stack_node **b);
 // swap
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);

@@ -44,6 +44,8 @@ int	main(int ac, char **av)
 			sa(&stack_a, false);
 		else if (stacklen(stack_a) == 3)
 			sort_three(&stack_a);
+		else
+			sort_stacks(&a, &b);
 	}
 	print_list(stack_a);
 	ft_lstclear(&stack_a);
