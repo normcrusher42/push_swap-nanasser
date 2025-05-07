@@ -6,55 +6,36 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 23:43:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/07 00:21:03 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 04:19:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "swap.h"
 
-void	add_node(t_stack_node **stack, int num)
+bool	stack_is_sorted(t_stack_node *stack)
 {
-	t_stack_node	*node;
-	t_stack_node	*last_node;
-
 	if (!stack)
-		return ;
-	node = malloc(sizeof(t_stack_node));
-	if (!node)
-		return ;
-	node -> value = num;
-	node -> cheapest = 0;
-	node -> next = NULL;
-	if (!(*stack))
+		return (1);
+	while (stack -> next)
 	{
-		*stack = node;
-		node -> prev = NULL;
+		if (stack -> value > stack -> next -> value)
+			return (false);
+		stack = stack -> next;
 	}
-	else
-	{
-		last_node = ft_lstlast(*stack);
-		last_node -> next = node;
-		node -> prev = last_node;
-	}
+	return (true);
 }
 
-void	initialize_stack_a(t_stack_node **node, char **av)
+int	stacklen(t_stack_node *stack)
 {
-	long	num;
-	int		i;
+	int len;
 
-	i = 0;
-	num = 0;
-	while (av[i])
+	if (!stack)
+		return (0);
+	len = 0;
+	while (stack)
 	{
-		if (error_check(av[i]))
-			free_check(node);
-		if (!(ft_atoi(av[i])))
-			free_check(node);
-		num = ft_atoi(av[i]);
-		if (dup_check(*node, (int)num))
-			free_check(node);
-		add_node(node, (int)num);
-		i++;
+		len++;
+		stack = stack -> next;
 	}
+	return (len);
 }

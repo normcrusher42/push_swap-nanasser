@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:59:57 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/05 23:20:11 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 04:39:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-int		ft_atoi(const char *str);
 void	*ft_bzero(void *str, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int word);
