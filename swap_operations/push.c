@@ -14,7 +14,26 @@
 
 static void	push(t_stack_node **dst, t_stack_node **src)
 {
+	t_stack_node	*node;
 
+	if (!src || !*src)
+		return ;
+	node = *src;
+	*src = node -> next;
+	if (*src)
+		(*src) -> prev = NULL;
+	node -> prev = NULL;
+	if (!*dst)
+	{
+		*dst = node;
+		node -> next = NULL;
+	}
+	else
+	{
+		node -> next = (*dst);
+		(*dst) -> prev = NULL;
+		node = *dst;
+	}
 }
 
 void	pa(t_stack_node **a, t_stack_node **b, bool print)

@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*   initialize_a_to_b.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/08 00:34:41 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/08 00:34:41 by marvin           ###   ########.fr       */
+/*   Created: 2025/05/08 01:40:15 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/08 01:40:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../swap.h"
 
-void	sort_stacks(t_stack_node **a, t_stack_node **b)
+void	curr_index(t_stack_node *stack)
 {
-	int	a_len;
+	int	median;
+	int	i;
 
-	a_len = stacklen(*a);
-	if (a_len-- > 3 && !stack_is_sorted(a))
-		pb(a, b, false);
-	if (a_len-- > 3 && !stack_is_sorted(a))
-		pb(a, b, false);
-	while (a_len-- > 3 && !stack_is_sorted(a))
+	if (!stack)
+		return ;
+	median = stacklen(stack) / 2;
+	i = 0;
+	while (stack)
 	{
-		init_a_to_b(*a, *b);
+		stack -> index = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack -> next;
+		i++;
 	}
+}
+
+void	init_a_to_b(t_stack_node *a, t_stack_node *b)
+{
+	curr_index(a);
+	curr_index(b);
+	
 }

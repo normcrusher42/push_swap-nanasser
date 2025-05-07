@@ -45,6 +45,7 @@ void			ft_lstclear(t_stack_node **lst);
 t_stack_node	*ft_lstlast(t_stack_node *lst);
 int				stacklen(t_stack_node *stack);
 t_stack_node	*find_largest(t_stack_node *stack);
+void			curr_index(t_stack_node *stack);
 
 ///   Stack Sorcery Isle   ///
 bool			stack_is_sorted(t_stack_node *stack);
@@ -61,6 +62,12 @@ void			rr(t_stack_node **a, t_stack_node **b, bool print);
 void			rra(t_stack_node **a, bool print);
 void			rrb(t_stack_node **b, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
-// Pushes //
+// Pushups //
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **a, t_stack_node **b, bool print);
+
+// Intializing nodes
+void			init_a_to_b(t_stack_node *a, t_stack_node *b);
+void			init_b_to_a(t_stack_node *b, t_stack_node *a);
 
 #endif
