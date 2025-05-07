@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 02:28:54 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/07 02:28:54 by marvin           ###   ########.fr       */
+/*   Created: 2025/05/07 19:35:03 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/07 19:35:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../swap.h"
 
-static void	swap(t_stack_node **headchef)
+static void	rotate(t_stack_node **headchef)
 {
 	t_stack_node	*first;
-	t_stack_node	*second;
+	t_stack_node	*last;
 
 	if (!headchef || !*headchef || !(*headchef)->next)
 		return ;
 	first = *headchef;
-	second = first -> next;
-	first -> next = second -> next;
-	second -> prev = NULL;
-	second -> next = first;
-	first -> prev = second;
-	*headchef = second;
+	last = ft_lstlast(*headchef);
+	*headchef = first -> next;
+	(*headchef)->prev = NULL;
+	last -> next = first;
+	first -> prev = last;
+	first -> next = NULL;
 }
 
-void	sa(t_stack_node **a, bool print)
+void	ra(t_stack_node **a, bool print)
 {
-	swap(a);
+	rotate(a);
 	if (!print)
-		ft_printf("sa\n");
+		ft_printf("ra\n");
 }
 
-void	sb(t_stack_node **b, bool print)
+void	rb(t_stack_node **b, bool print)
 {
-	swap(b);
+	rotate(b);
 	if (!print)
-		ft_printf("sb\n");
+		ft_printf("rb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b, bool print)
+void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
-	swap(a);
-	swap(b);
+	rotate(a);
+	rotate(b);
 	if (!print)
-		ft_printf("ss\n");
+		ft_printf("rr\n");
 }

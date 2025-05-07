@@ -32,7 +32,7 @@ typedef struct s_stack_node
 
 //initializing stack """A"""
 void			initialize_stack_a(t_stack_node **node, char **av);
-int				ft_atoi(const char *str, t_stack_node **node);
+long			ft_atoi(const char *str, t_stack_node **node);
 
 //Error checking and Handling
 int				error_check(char *str);
@@ -44,11 +44,22 @@ void			add_node(t_stack_node **stack, int num);
 void			ft_lstclear(t_stack_node **lst);
 t_stack_node	*ft_lstlast(t_stack_node *lst);
 int				stacklen(t_stack_node *stack);
+t_stack_node	*find_largest(t_stack_node *stack);
 
-//Stack sorcery
+///   Stack Sorcery Isle   ///
 bool			stack_is_sorted(t_stack_node *stack);
+void			sort_three(t_stack_node **a);
+// swap
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);
 void			ss(t_stack_node **a, t_stack_node **b, bool print);
+//rotate && reverse rotate
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
+// Pushes //
 
 #endif

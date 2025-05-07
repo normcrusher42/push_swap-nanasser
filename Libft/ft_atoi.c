@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 14:08:19 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/07 04:48:46 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 18:21:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	whitespaces(const char *str, int *istr)
 	return (counter);
 }
 
-int	ft_atoi(const char *str, t_stack_node **node)
+long	ft_atoi(const char *str, t_stack_node **node)
 {
 	int			i;
 	int			sign;
@@ -41,11 +41,8 @@ int	ft_atoi(const char *str, t_stack_node **node)
 	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		// if (result > (LONG_MAX - (str[i] - '0')) / 10)
-		// {
-		// 	ft_printf("exit check\n")
-		// 	free_check(node);
-		// }
+		if (result > (INT_MAX - (str[i] - '0')) / 10)
+			free_check(node);
 		result = (result * 10) + (str[i++] - '0');
 	}
 	result *= sign;

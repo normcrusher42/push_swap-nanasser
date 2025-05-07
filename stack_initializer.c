@@ -50,8 +50,6 @@ void	initialize_stack_a(t_stack_node **node, char **av)
 		if (error_check(av[i]))
 			free_check(node);
 		num = ft_atoi(av[i], node);
-		if (num > INT_MAX || num < INT_MIN)
-			free_check(node);
 		if (dup_check(*node, (int)num))
 			free_check(node);
 		add_node(node, (int)num);

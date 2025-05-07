@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 21:29:57 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/07 00:18:13 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 16:26:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int	dup_check(t_stack_node *a, int n)
 void	free_check(t_stack_node **node)
 {
 	ft_lstclear(node);
-	ft_printf("\n");
+	ft_printf("Error\n");
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 23:43:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/07 04:19:32 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/07 21:18:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool	stack_is_sorted(t_stack_node *stack)
 
 int	stacklen(t_stack_node *stack)
 {
-	int len;
+	int	len;
 
 	if (!stack)
 		return (0);
@@ -38,4 +38,25 @@ int	stacklen(t_stack_node *stack)
 		stack = stack -> next;
 	}
 	return (len);
+}
+
+t_stack_node	*find_largest(t_stack_node *stack)
+{
+	t_stack_node	*largest_node;
+	long			max;
+
+	if (!stack)
+		return (NULL);
+	largest_node = stack;
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack -> value > max)
+		{
+			max = stack -> value;
+			largest_node = stack;
+		}
+		stack = stack -> next;
+	}
+	return (largest_node);
 }
