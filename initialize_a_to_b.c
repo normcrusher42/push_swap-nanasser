@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../swap.h"
+#include "swap.h"
 
-void	curr_index(t_stack_node *stack)
+void	set_median_index(t_stack_node *stack)
 {
 	int	median;
 	int	i;
@@ -33,9 +33,76 @@ void	curr_index(t_stack_node *stack)
 	}
 }
 
+static void	target_node_a(t_stack_node *a, t_stack_node *b)
+{
+	t_stack_node	*target_node;
+	t_stack_node	*curr_b;
+	long			closest_cost;
+
+	while (a)
+	{
+		closest_cost = LONG_MIN;
+		curr_b = b;
+		while (curr_b)
+		{
+			if (curr_b->value < a->value && curr_b->value > closest_cost)
+			{
+				target_node = curr_b;
+				curr_b -> value = closest_cost;
+			}
+			curr_b = curr_b -> next;
+		}
+		if (closest_cost == LONG_MIN)
+			a -> target = find_largest(b);
+		else
+			a -> target = target_node;
+		a = a -> next;
+	}
+}
+
+static void	check_cost_a(t_stack_node *a, t_stack_node *b)
+{
+	int	len_a;
+	int	len_b;
+
+	len_a = stacklen(a);
+	len_b = stacklen(b);
+	while (a)
+	{
+		if (!(a->above_median))
+			a -> push_cost = len_a - (a->index);
+		if (a->target->above_median)
+			a -> push_cost += a -> target -> index;
+		else
+			a -> push_cost += len_b - (a->target->index);
+		a = a -> next;
+	}
+}
+
+void	set_cheapest(t_stack_node *stack)
+{
+	long			cheapest_cost;
+	t_stack_node	*cheapest_node;
+	if (!stack)
+		return ;
+	cheapest_cost = LONG_MAX;
+	while (stack)
+	{
+		if (stack->push_cost < cheapest_cost)
+		{
+			cheapest_cost = stack->push_cost;
+			cheapest_node = stack;
+		}
+		stack = stack -> next;
+	}
+	cheapest_node -> cheapest = true;
+}
+
 void	init_a_to_b(t_stack_node *a, t_stack_node *b)
 {
-	curr_index(a);
-	curr_index(b);
-	
+	set_median_index(a);
+	set_median_index(b);
+	target_node_a(a, b);
+	check_cost_a(a, b);
+	set_cheapest(a);
 }

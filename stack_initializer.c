@@ -56,3 +56,35 @@ void	initialize_stack_a(t_stack_node **node, char **av)
 		i++;
 	}
 }
+
+void	min_top(t_stack_node **a)
+{
+	while ((*a)->value != find_smallest(*a)->value)
+	{
+		if (find_smallest(*a)->above_median)
+			ra(a, false);
+		else
+			rra(a, false);
+	}
+}
+
+void	prep_push(t_stack_node **stack, t_stack_node *top_node, char stackname)
+{
+	while (*stack != top_node)
+	{
+		if (stackname == 'a')
+		{
+			if (top_node->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else if (stackname == 'b')
+		{
+			if (top_node->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}
+	}
+}

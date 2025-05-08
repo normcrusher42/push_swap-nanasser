@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 18:06:28 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/08 00:50:09 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/08 21:55:03 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT_PATH = libft/
 NAME = push_swap.a
 LIBFT = $(LIBFT_PATH)libft.a
 
-SRC = ./push_swap.c swap_utils.c swap_errors.c stack_initializer.c \
+SRC = ./push_swap.c swap_utils.c swap_errors.c stack_initializer.c initialize_a_to_b.c initialize_b_to_a.c \
 
 SRC2 = swap_operations/swap.c swap_operations/sort_three.c swap_operations/rotate.c swap_operations/r_rotate.c swap_operations/sort_stacks.c swap_operations/push.c \
 

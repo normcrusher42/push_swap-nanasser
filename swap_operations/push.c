@@ -21,7 +21,7 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 	node = *src;
 	*src = node -> next;
 	if (*src)
-		(*src) -> prev = NULL;
+		(*src)->prev = NULL;
 	node -> prev = NULL;
 	if (!*dst)
 	{
@@ -31,7 +31,7 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 	else
 	{
 		node -> next = (*dst);
-		(*dst) -> prev = NULL;
+		(*dst)->prev = NULL;
 		node = *dst;
 	}
 }

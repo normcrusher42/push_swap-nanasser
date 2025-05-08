@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 23:43:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/07 21:18:27 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/08 21:42:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,38 @@ t_stack_node	*find_largest(t_stack_node *stack)
 		stack = stack -> next;
 	}
 	return (largest_node);
+}
+
+t_stack_node	*find_smallest(t_stack_node *stack)
+{
+	t_stack_node	*smallest_node;
+	long			min;
+
+	if (!stack)
+		return (NULL);
+	smallest_node = stack;
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack -> value < min)
+		{
+			min = stack -> value;
+			smallest_node = stack;
+		}
+		stack = stack -> next;
+	}
+	return (smallest_node);
+}
+
+t_stack_node	*grab_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack -> next;
+	}
+	return (NULL);
 }
