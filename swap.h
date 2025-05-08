@@ -53,7 +53,10 @@ t_stack_node	*grab_cheapest(t_stack_node *stack);
 bool			stack_is_sorted(t_stack_node *stack);
 void			sort_three(t_stack_node **a);
 void			sort_stacks(t_stack_node **a, t_stack_node **b);
-void			prep_push(t_stack_node **stack, t_stack_node *top_node, char stackname);
+void			prep_push(t_stack_node **stack, t_stack_node *top_node,
+					char stackname);
+void			min_top(t_stack_node **a);
+
 // swap
 void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);

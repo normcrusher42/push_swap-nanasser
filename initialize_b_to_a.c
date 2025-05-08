@@ -24,10 +24,10 @@ static void	target_node_b(t_stack_node *a, t_stack_node *b)
 		curr_a = a;
 		while (curr_a)
 		{
-			if (curr_a->value > a->value && curr_a->value < closest_cost)
+			if (curr_a->value > b->value && curr_a->value < closest_cost)
 			{
 				target_node = curr_a;
-				curr_a -> value = closest_cost;
+				closest_cost = curr_a -> value;
 			}
 			curr_a = curr_a -> next;
 		}

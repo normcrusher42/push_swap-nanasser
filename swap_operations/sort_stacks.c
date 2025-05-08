@@ -12,7 +12,8 @@
 
 #include "../swap.h"
 
-static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+static void	rotate_both(t_stack_node **a, t_stack_node **b,
+			t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node -> target && *a != cheapest_node)
 		rr(a, b, false);
@@ -20,7 +21,8 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheape
 	set_median_index(*b);
 }
 
-static void	rrotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+static void	rrotate_both(t_stack_node **a, t_stack_node **b,
+			t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node -> target && *a != cheapest_node)
 		rrr(a, b, false);
@@ -33,18 +35,20 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*cheapest_node;
 
 	cheapest_node = grab_cheapest(*a);
-	if (cheapest_node->above_median && cheapest_node->target->above_median)
+	if (cheapest_node->above_median
+		&& cheapest_node->target->above_median)
 		rotate_both(a, b, cheapest_node);
-	else if (!(cheapest_node->above_median) && !(cheapest_node->target->above_median))
+	else if (!(cheapest_node->above_median)
+		&& !(cheapest_node->target->above_median))
 		rrotate_both(a, b, cheapest_node);
 	prep_push(a, cheapest_node, 'a');
 	prep_push(b, cheapest_node->target, 'b');
-	pb(b, a, false);
+	pb(a, b, false);
 }
 
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	prep_push(a, ((*b)->target), 'a');
+	prep_push(a, (*b)->target, 'a');
 	pa(a, b, false);
 }
 
@@ -69,5 +73,5 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 		move_b_to_a(a, b);
 	}
 	set_median_index(*a);
-	
+	min_top(a);
 }

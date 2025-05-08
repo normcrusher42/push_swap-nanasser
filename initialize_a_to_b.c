@@ -33,9 +33,9 @@ void	set_median_index(t_stack_node *stack)
 	}
 }
 
-static void	target_node_a(t_stack_node *a, t_stack_node *b)
+static void	target_a(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node	*target_node;
+	t_stack_node	*target;
 	t_stack_node	*curr_b;
 	long			closest_cost;
 
@@ -47,15 +47,15 @@ static void	target_node_a(t_stack_node *a, t_stack_node *b)
 		{
 			if (curr_b->value < a->value && curr_b->value > closest_cost)
 			{
-				target_node = curr_b;
-				curr_b -> value = closest_cost;
+				target = curr_b;
+				closest_cost = curr_b -> value;
 			}
 			curr_b = curr_b -> next;
 		}
 		if (closest_cost == LONG_MIN)
 			a -> target = find_largest(b);
 		else
-			a -> target = target_node;
+			a -> target = target;
 		a = a -> next;
 	}
 }
@@ -69,6 +69,7 @@ static void	check_cost_a(t_stack_node *a, t_stack_node *b)
 	len_b = stacklen(b);
 	while (a)
 	{
+		a -> push_cost = a -> index;
 		if (!(a->above_median))
 			a -> push_cost = len_a - (a->index);
 		if (a->target->above_median)
@@ -83,6 +84,7 @@ void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_cost;
 	t_stack_node	*cheapest_node;
+
 	if (!stack)
 		return ;
 	cheapest_cost = LONG_MAX;
@@ -102,7 +104,7 @@ void	init_a_to_b(t_stack_node *a, t_stack_node *b)
 {
 	set_median_index(a);
 	set_median_index(b);
-	target_node_a(a, b);
+	target_a(a, b);
 	check_cost_a(a, b);
 	set_cheapest(a);
 }
