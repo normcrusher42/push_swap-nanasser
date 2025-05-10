@@ -31,7 +31,7 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //initializing stack """A"""
-void			initialize_stack_a(t_stack_node **node, char **av);
+void			initialize_stack_a(t_stack_node **node, char **av, bool tick);
 long			ft_atoi(const char *str, t_stack_node **node);
 
 //Error checking and Handling

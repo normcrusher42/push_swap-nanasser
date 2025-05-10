@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 18:06:28 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/08 21:55:03 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/11 03:33:32 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,20 +29,24 @@ CC		=		cc
 CFLAGS	= -Wall -Werror -Wextra
 
 GREEN=\033[0;32m
+BGREEN=\033[1;32m
 YELLOW=\033[0;33m
+WHITE=\033[0;37m
 
 MAKEFLAGS += --no-print-directory
 
 all:$(NAME)
 
 $(NAME): $(LIBFT) $(OBJ_PATH) $(OBJ_PATH2) $(OBJ) $(OBJ2)
-	@echo "$(YELLOW)Main Make on the way, sir."
+	@echo "$(YELLOW)Main Make on the way, sir.$(WHITE)"
 	@cp $(LIBFT) $(NAME)
 	@ar -rcs $(NAME) $(OBJ) $(OBJ2)
-	@echo "$(GREEN)fini. now fuck around and find out."
+	@cc push_swap.c *.a -o push_swap -fsanitize=address -g3
+	@echo "$(GREEN)push_swap has been compiled with the library.$(WHITE)"
+	@echo "$(BGREEN)fini. now fuck around and find out.$(WHITE)"
 
 $(LIBFT):
-	@echo "$(YELLOW)Libft Make on the way, sir."
+	@echo "$(YELLOW)Libft Make on the way, sir.$(WHITE)"
 	@make -C $(LIBFT_PATH) all
 
 $(OBJ_PATH)%.o : %.c
@@ -60,12 +64,12 @@ $(OBJ_PATH2):
 clean:
 	@rm -rf $(OBJ_PATH) $(OBJ_PATH2)
 	@make clean -C $(LIBFT_PATH)
-	@echo "$(GREEN)cleaned like the blackhole you're getting if you don't STOP COOKING"
+	@echo "$(BGREEN)cleaned like the blackhole you're getting if you DON'T GET TO COOKING"
 
 fclean: clean
 	@rm -f $(NAME) 
 	@rm -f $(LIBFT)
-	@rm -f *.out
+	@rm -f push_swap
 
 re: fclean $(NAME)
 

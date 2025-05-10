@@ -44,7 +44,6 @@ static void	rrotate(t_stack_node **stack) //Define a funtion that rotates a stac
 
 void	rra(t_stack_node **a, bool print)
 {
-	ft_printf("[%d]\n", (*a)->value);
 	rrotate(a);
 	if (!print)
 		ft_printf("rra\n");

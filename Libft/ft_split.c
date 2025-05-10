@@ -6,14 +6,14 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:26:48 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/09 01:21:09 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/11 02:12:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../swap.h"
 
-static int	count_words(char *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int		count;
 	bool	inside_word;
@@ -37,7 +37,7 @@ static int	count_words(char *s, char c)
 	return (count);
 }
 
-static char	*get_next_word(char *s, char c)
+static char	*get_next_word(char const *s, char c)
 {
 	static int	cursor = 0;
 	char		*next_word;
@@ -59,7 +59,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char	**ft_split(char *s, char c)
+char **ft_split(char const *s, char c)
 {
 	int		words_count;
 	char	**result_array;
@@ -87,3 +87,64 @@ char	**ft_split(char *s, char c)
 	result_array[i] = NULL;
 	return (result_array);
 }
+
+// static int	counting_words(char const *s, char c)
+// {
+// 	int	i;
+// 	int	count;
+
+// 	i = 0;
+// 	count = 0;
+// 	while (s[i])
+// 	{
+// 		while (s[i] == c)
+// 			i++;
+// 		if (s[i])
+// 		{
+// 			count++;
+// 			while (s[i] && s[i] != c)
+// 				i++;
+// 		}
+// 	}
+// 	return (count);
+// }
+
+// static void	allocating(char **arr, char const *s, char c)
+// {
+// 	char		**toarr;
+// 	char const	*sptr;
+
+// 	toarr = arr;
+// 	sptr = s;
+// 	if (toarr == 0)
+// 		toarr++;
+// 	while (*sptr)
+// 	{
+// 		while (*s == c)
+// 			s++;
+// 		sptr = s;
+// 		while (*sptr && *sptr != c)
+// 			sptr++;
+// 		if (*sptr == c || sptr > s)
+// 		{
+// 			*toarr = ft_substr(s, 0, sptr - s);
+// 			s = sptr;
+// 			toarr++;
+// 		}
+// 	}
+// 	*toarr = NULL;
+// }
+
+// char	**ft_split(char const *s, char c)
+// {
+// 	char	**arr;
+// 	int		size;
+
+// 	if (!s)
+// 		return (NULL);
+// 	size = counting_words(s, c);
+// 	arr = malloc(sizeof(char *) * (size + 1));
+// 	allocating(arr + 1, s, c);
+// 	return (arr);
+// }
+

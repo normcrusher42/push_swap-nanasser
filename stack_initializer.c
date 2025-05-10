@@ -38,7 +38,18 @@ void	add_node(t_stack_node **stack, int num)
 	}
 }
 
-void	initialize_stack_a(t_stack_node **node, char **av)
+static void	*free_split_result(char **result)
+{
+	int	i;
+
+	i = 0;
+	while (result && result[i])
+		free(result[i++]);
+	free(result);
+	return (NULL);
+}
+
+void	initialize_stack_a(t_stack_node **node, char **av, bool tick)
 {
 	long	num;
 	int		i;
@@ -55,6 +66,8 @@ void	initialize_stack_a(t_stack_node **node, char **av)
 		add_node(node, (int)num);
 		i++;
 	}
+	if (tick)
+		free_split_result(av - 1);
 }
 
 void	min_top(t_stack_node **a)

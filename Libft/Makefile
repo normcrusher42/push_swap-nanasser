@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/17 21:00:03 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/07 23:31:53 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/11 03:33:16 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,6 @@ SRC = ./ft_atoi.c \
 ./ft_lstiter.c \
 ./ft_lstlast.c \
 ./ft_printf.c ft_printf_str.c ft_printf_unsigned.c ft_printf_ptr.c ft_printf_hex.c \
-./get_next_line.c get_next_line_utils.c \
 
 OBJ = $(SRC:%.c=$(OBJ_PATH)%.o)
 
@@ -65,7 +64,7 @@ CFLAGS += -Wall -Werror -Wextra
 
 NAME = libft.a
 
-GREEN=\033[0;32m
+GREEN=\033[1;32m
 YELLOW=\033[0;33m
 
 MAKEFLAGS += --no-print-directory
