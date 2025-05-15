@@ -6,11 +6,11 @@
 /*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 21:29:57 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/11 15:30:35 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/11 19:42:25 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 int	error_check(char *str)
 {
@@ -39,9 +39,11 @@ int	dup_check(t_stack_node *a, int n)
 	return (0);
 }
 
-void	free_check(t_stack_node **node)
+void	free_check(t_stack_node **node, char **av, bool tick)
 {
 	ft_lstclear(node);
+	if (tick)
+		free_split_result(av - 1);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
