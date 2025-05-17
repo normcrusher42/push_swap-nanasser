@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 23:43:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/08 21:42:15 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/11 16:38:03 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 bool	stack_is_sorted(t_stack_node *stack)
 {

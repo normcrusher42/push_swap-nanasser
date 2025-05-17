@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 void	set_median_index(t_stack_node *stack)
 {
@@ -88,6 +88,7 @@ void	set_cheapest(t_stack_node *stack)
 	if (!stack)
 		return ;
 	cheapest_cost = LONG_MAX;
+	cheapest_node = NULL;
 	while (stack)
 	{
 		if (stack->push_cost < cheapest_cost)

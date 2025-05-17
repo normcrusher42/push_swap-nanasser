@@ -6,7 +6,7 @@
 /*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 13:58:04 by nanasser          #+#    #+#             */
-/*   Updated: 2025/04/21 19:46:31 by nanasser         ###   ########.fr       */
+/*   Updated: 2025/05/11 16:28:37 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (num);
 }
-
-// int	main()
-// {
-// 	ft_printf("%s - %500% - %s", "lol", "sos");
-// 	printf("%s - %500% - %s", "lol", "sos");
-// }

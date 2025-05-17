@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:07:15 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/05 20:17:51 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/11 16:38:03 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../swap.h"
+#include "../push_swap.h"
 
 void	ft_lstclear(t_stack_node **lst)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nanasser <nanasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:09:23 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/07 04:18:56 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/11 16:38:03 by nanasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../swap.h"
+#include "../push_swap.h"
 
 t_stack_node	*ft_lstlast(t_stack_node *lst)
 {

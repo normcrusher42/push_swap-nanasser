@@ -6,11 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 14:08:19 by nanasser          #+#    #+#             */
-/*   Updated: 2025/05/07 18:21:18 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/18 00:58:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../swap.h"
+#include "../push_swap.h"
 
 static int	whitespaces(const char *str, int *istr)
 {
@@ -31,7 +31,7 @@ static int	whitespaces(const char *str, int *istr)
 	return (counter);
 }
 
-long	ft_atoi(const char *str, t_stack_node **node)
+long	ft_atoi(const char *str, t_stack_node **node, char **av, bool tick)
 {
 	int			i;
 	int			sign;
@@ -41,10 +41,9 @@ long	ft_atoi(const char *str, t_stack_node **node)
 	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (result > (INT_MAX - (str[i] - '0')) / 10)
-			free_check(node);
+		if (result > (LONG_MAX - (str[i] - '0')) / 10)
+			free_check(node, av, tick);
 		result = (result * 10) + (str[i++] - '0');
 	}
-	result *= sign;
-	return (result);
+	return (result * sign);
 }

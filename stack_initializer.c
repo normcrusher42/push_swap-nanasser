@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 void	add_node(t_stack_node **stack, int num)
 {
@@ -38,7 +38,7 @@ void	add_node(t_stack_node **stack, int num)
 	}
 }
 
-static void	*free_split_result(char **result)
+void	*free_split_result(char **result)
 {
 	int	i;
 
@@ -59,15 +59,13 @@ void	initialize_stack_a(t_stack_node **node, char **av, bool tick)
 	while (av[i])
 	{
 		if (error_check(av[i]))
-			free_check(node);
-		num = ft_atoi(av[i], node);
+			free_check(node, av, tick);
+		num = ft_atoi(av[i], node, av, tick);
 		if (dup_check(*node, (int)num))
-			free_check(node);
+			free_check(node, av, tick);
 		add_node(node, (int)num);
 		i++;
 	}
-	if (tick)
-		free_split_result(av - 1);
 }
 
 void	min_top(t_stack_node **a)

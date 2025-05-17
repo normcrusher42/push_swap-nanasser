@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "swap.h"
+#include "push_swap.h"
 
 static void	target_node_b(t_stack_node *a, t_stack_node *b)
 {

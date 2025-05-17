@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../swap.h"
+#include "../push_swap.h"
 
 static void	rotate_both(t_stack_node **a, t_stack_node **b,
 			t_stack_node *cheapest_node)

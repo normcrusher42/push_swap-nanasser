@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 18:06:28 by nanasser          #+#    #+#              #
-#    Updated: 2025/05/11 03:33:32 by marvin           ###   ########.fr        #
+#    Updated: 2025/05/18 02:34:27 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ OBJ_PATH = obj/
 OBJ_PATH2 = swap_operations/obj/
 LIBFT_PATH = libft/
 
-NAME = push_swap.a
+NAME = push_swap
 LIBFT = $(LIBFT_PATH)libft.a
 
 SRC = ./push_swap.c swap_utils.c swap_errors.c stack_initializer.c initialize_a_to_b.c initialize_b_to_a.c \
@@ -26,7 +26,7 @@ OBJ2 = $(SRC2:swap_operations/%.c=$(OBJ_PATH2)%.o)
 
 CC		=		cc
 
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g -O3
 
 GREEN=\033[0;32m
 BGREEN=\033[1;32m
@@ -40,8 +40,7 @@ all:$(NAME)
 $(NAME): $(LIBFT) $(OBJ_PATH) $(OBJ_PATH2) $(OBJ) $(OBJ2)
 	@echo "$(YELLOW)Main Make on the way, sir.$(WHITE)"
 	@cp $(LIBFT) $(NAME)
-	@ar -rcs $(NAME) $(OBJ) $(OBJ2)
-	@cc push_swap.c *.a -o push_swap -fsanitize=address -g3
+	@$(CC) $(CFLAGS) $(OBJ) $(OBJ2) $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)push_swap has been compiled with the library.$(WHITE)"
 	@echo "$(BGREEN)fini. now fuck around and find out.$(WHITE)"
 
