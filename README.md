@@ -9,8 +9,8 @@ HUGE thanks to my colleagues in 42 for helping me find silly edge cases I hadn't
 feel free to squeeze the project as much as you can for bugs. None of my evaluators could and they weren't all cutsie.
 
 *🎵 whoever can push, and swap through code, and sort through some linked lists cleaaanly, will look like the king, sit down like the goat, 100% as he's pleaaaased 🎵*
-**where is he??? where is the man who can bring a segfault- wooo-woaaah~**
+**where is he??? where is the man who can track the segfault- wooo-woaaah~**
 
-*screw this sorting program, we've been here for hours, none of us can sort this, we got no brain power. Screw this damn challenge, no more re makes, can't you guys see our function's failed??*
+*screw this sorting program, we've been here for hours, none of us can sort this, we got no brain power. Screw this damn challenge, no more re makes, can't you guys see our program's failed??*
 
 \- A very EPIC reference
